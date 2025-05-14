@@ -20,7 +20,7 @@ int main()
 {
     //Declaracion e inicialización de variables
     int edad = 0, eleccionTipo = 0, eleccionDis = 0;
-    float descuentoE = 0.020, descuentoP = 0.010, precioLB = 900, precioTE = 600,
+    int precioLB = 900, precioTE = 600,
     precioCB = 700, precioLA = 1500, precioTP = 1200, precioET = 2000, saldoFijo = 1000, precioFinal = 0, saldoRestante = 0;
     string mensaje = "", nombreProducto = "";
 
@@ -43,28 +43,28 @@ int main()
         switch(eleccionTipo){
             case 1:
             //Se le muestran los dispositivvos disponibles para estudiantes
-            cot<<"Muy bien estudiante estos son nuestros productos disponibles para ti: "<<endl;
+            cout<<endl<<"Muy bien estudiante estos son nuestros productos disponibles para ti: "<<endl;
             cout<<"1) Laptop Basica (900$)"<<endl;
             cout<<"2) Tablet Estudiantil (600$)"<<endl;
             cout<<"3) Chromebook (700$)"<<endl;
             cout<<"--Yo escogo: ";
             cin>>eleccionDis;
-            cout<<endl<<"Muy bien, al ser estudiante tenrá un descuento del 20%";
+            cout<<endl<<endl<<"Muy bien, al ser estudiante tendra un descuento del 20%"<<endl;
 
             switch(eleccionDis){
                 case 1:
                 //Cálculo del precio del producto con el descuento
-                precioFinal = precioLB * descuentoE;
+                precioFinal = precioLB - (precioLB * 0.20);
                 nombreProducto = "Laptop Basica";
                 break;
                 case 2:
                  //Cálculo del precio del producto con el descuento
-                 precioFinal = precioTE * descuentoE;
+                 precioFinal = precioTE - (precioTE * 0.20);
                  nombreProducto = "Tablet Estudiantil";
                 break;
                 case 3: 
                 //Cálculo del precio del producto con el descuento
-                precioFinal = precioTE * descuentoE;
+                precioFinal = precioCB - (precioCB * 0.20);
                 nombreProducto = "Chromebook";
                 break;
                 default:
@@ -75,7 +75,7 @@ int main()
             break;
             case 2:
             //Se le muestran los dispositivvos disponibles para estudiantes
-            cot<<"Muy bien Profesional estos son nuestros productos disponibles para ti: "<<endl;
+            cout<<"Muy bien Profesional estos son nuestros productos disponibles para ti: "<<endl;
             cout<<"1) Laptop Avanzada (1500$)"<<endl;
             cout<<"2) Tablet Pro (1200$)"<<endl;
             cout<<"3) Estación de trabajo (2000$)"<<endl;
@@ -86,17 +86,17 @@ int main()
             switch(eleccionDis){
                 case 1:
                 //Cálculo del precio del producto con el descuento
-                precioFinal = precioLA * descuentoP;
+                precioFinal = precioLA-(precioLA * 0.010);
                 nombreProducto = "Laptop Avanzada";
                 break;
                 case 2:
                  //Cálculo del precio del producto con el descuento
-                 precioFinal = precioTP * descuentoP;
+                 precioFinal = precioTP-(precioTP * 0.010);
                  nombreProducto = "Tablet pro";
                 break;
                 case 3: 
                 //Cálculo del precio del producto con el descuento
-                precioFinal = precioET * descuentoP;
+                precioFinal = precioET - (precioET * 0.010);
                 nombreProducto = "Estacion de trabajo";
                 break;
                 default:
@@ -107,7 +107,7 @@ int main()
             break;
             case 3:
             //Se le muestran los dispositivvos disponibles para estudiantes
-            cot<<"Muy bien estos son todos nuestros productos disponibles: "<<endl;
+            cout<<"Muy bien estos son todos nuestros productos disponibles: "<<endl;
             cout<<"1) Laptop Basica (900$)"<<endl;
             cout<<"2) Tablet Estudiantil (600$)"<<endl;
             cout<<"3) Chromebook (700$)"<<endl;
@@ -167,14 +167,14 @@ int main()
         saldoRestante = precioFinal - saldoFijo;
         //PD: La variable saldoRetante se pasa a strign debido a que no podemos darle valores int a la variable mensaje, puesto que mensaje es string y solo acepta ese tipo de valores :D
         mensaje = "Oh NO, Parece que el precio de la "+nombreProducto+" supera su saldo, le faltan: " + to_string(saldoRestante);
-        else{
+        }else{
         saldoRestante = saldoFijo - precioFinal;
-        mensaje = "OH, parece que si le alcanza\n: Saldo original: "
+        mensaje = nombreProducto+" OH, parece que si le alcanza\n Saldo original: "
         + to_string(saldoFijo) + "\nPrecio con descuento: "+to_string(precioFinal)
         +"\nSaldo restante: "+ to_string(saldoRestante);
         }
         cout<<mensaje<<endl;
-        cout<<"Gracias por preferirnos, hasta pronto";
+        cout<<endl<<"Gracias por preferirnos, hasta pronto";
     }else{
         //Mensaje de despedida si no cumple con la condicion
         cout<<"Usted no puede continuar con la compra puesto que es un menor de 16, hasta luegooo";    
